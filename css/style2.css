@@ -10,24 +10,20 @@ heading {
 }
 #goat-canvas {
 
+    display: block;
     top: 75px;
     left: 0;
 }
 #svg-frame {
     width: -moz-fit-content;
 }
-#controls button {
+#clear, #toggle-canvas, #reset, #snapshot {
     display: block;
     margin: 1%;
     background: #DEDEDE;
     border: 1px solid;
     cursor: pointer;
     font-size: 1.25em;
-    padding: 1em;
-}
-#controls button:hover{
-    color: #DEDEDE;
-    background: #666;
 }
 .main {
     width: -moz-fit-content;
