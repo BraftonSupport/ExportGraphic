@@ -32,33 +32,22 @@
         resetCan.addEventListener('click', function(){
             resetCanvas();
         });
-        snapshot.addEventListener('click', function(){
-
-            //image.src = svg.toDataURL("image/svg");
-            var s = new XMLSerializer().serializeToString(document.getElementById("bkgrnd"));
-            var encodedData = window.btoa(s);
-            var newSrc = 'data:image/jpg;base64,'+encodedData;
-            var image = new Image();
-            image.src = newSrc;
-            console.log(svg);
-            // var serializer = new XMLSerializer();
-            // var source = serializer.serializeToString(svg);
-            var background = document.getElementById("bkgrnd");
-            context.globalCompositeOperation='destination-over';
-            context.drawImage(image,0,0); 
-            // try{ 
-            //     context.drawImage(image,0,0); 
-            //     console.log('no error drawing image');
-            // } catch {
-            //     console.log('error drawing image');
-            // }  
-        });
+        // snapshot.addEventListener('click', function(){
+        //     var s = new XMLSerializer().serializeToString(document.getElementById("bkgrnd"));
+        //     var encodedData = window.btoa(s);
+        //     var newSrc = 'data:image/jpg;base64,'+encodedData;
+        //     var image = new Image();
+        //     image.src = newSrc;
+        //     var background = document.getElementById("bkgrnd");
+        //     context.globalCompositeOperation='destination-over';
+        //     context.drawImage(image,0,0);
+        // });
         finish.addEventListener('click',function(){
             var finished = new Image();
 	        finished.src = canvas.toDataURL("image/png");
             var serializer = new XMLSerializer();
             var source = serializer.serializeToString(svg);
-            download.setAttribute('src', finished.src);
+            download.setAttribute('href', finished.src);
         });
         toggleCanvas.addEventListener('click',function(){
             console.log(window.navigator.userAgent);
@@ -67,14 +56,14 @@
             var newSrc = 'data:image/svg+xml,'+encodedData;
             var img = new Image();
             img.onload = function() {
-                context.drawImage(img, 100, 100,400,400);
+                context.drawImage(img, 100, 100,600,600);
             }
             img.src = "data:image/svg+xml;base64,"+encodedData;
-            console.log(encodedData);
+            svg.style.display = 'none';
+            // canvas.style.position = 'absolute';
+            // canvas.style.left = '0px';
             canvas.addEventListener('mousedown', function(e){
-                console.log(e);
                 engaged = true;
-                console.log(e.pageX,this.offsetLeft);
                 var mouseX = e.pageX-this.offsetLeft;
                 var mouseY = e.pageY-this.offsetTop;
                 recordPosition(mouseX, mouseY, false);

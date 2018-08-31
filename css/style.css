@@ -9,7 +9,7 @@ heading {
     height: 100%;
 }
 #goat-canvas {
-
+    background: #FFF;
     top: 75px;
     left: 0;
 }
